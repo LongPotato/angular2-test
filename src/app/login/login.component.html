@@ -1,0 +1,26 @@
+<div class="ui middle aligned center aligned grid">
+  <div class="column">
+
+    <div class="ui segment">
+
+      <h1 class="center aligned header form-head">Sign in</h1>
+      <br/>
+      <form class="ui form"
+        [formGroup]="form"
+        (ngSubmit)="onSubmit(form.value)">
+        <div class="field">
+          <input type="email" id="email" placeholder="Email" formControlName="email">
+        </div>
+        <div class="field">
+          <input type="password" id="password" placeholder="Password" formControlName="password">
+        </div>
+        <button class="ui submit fluid large primary button" type="submit" [disabled]="!form.valid">Sign in</button>
+      </form>
+      <div class="ui divider"></div>
+      <p>Not a member?</p>
+      <button class="ui fluid large button" routerLink="/register">Register</button>
+
+    </div>
+
+  </div>
+</div>

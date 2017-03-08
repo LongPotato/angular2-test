@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
 import { AlertService } from '../services/alert.service';
 
@@ -12,6 +13,7 @@ export class LoginComponent {
   form;
 
   constructor(
+    private router: Router,
     private alert: AlertService,
     private authentication: AuthenticationService) {}
 
@@ -32,6 +34,7 @@ export class LoginComponent {
   onSubmit(credential) {
     if (this.authentication.login(credential) == true) {
       console.log("Sucess!");
+      this.router.navigate(['./profile']);
     } else {
       this.alert.error("Error: Username or password missmatch");
     }

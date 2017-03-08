@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { AlertComponent } from './alert/alert.component';
+import { ProfileComponent } from './profile/profile.component';
 
 import { AuthenticationService } from './services/authentication.service';
 import { AlertService } from './services/alert.service';
@@ -21,7 +22,8 @@ import { routing } from './app.routing';
     LoginComponent,
     HomeComponent,
     RegisterComponent,
-    AlertComponent
+    AlertComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

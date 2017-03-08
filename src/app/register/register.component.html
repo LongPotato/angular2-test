@@ -5,17 +5,19 @@
       <h1 class="center aligned header form-head">Register</h1>
       <br/>
 
-      <form class="ui form">
+      <form class="ui form"
+        [formGroup]="form"
+        (ngSubmit)="onSubmit(form.value)">
         <div class="field">
-          <input type="email" id="email" placeholder="Enter email">
+          <input type="email" id="email" placeholder="Enter email" formControlName="email">
         </div>
         <div class="field">
-          <input type="password" class="form-control" id="password" placeholder="Password">
+          <input type="password" class="form-control" id="password" placeholder="Password" formControlName="password">
         </div>
         <div class="field">
-          <input type="password" class="form-control" id="password" placeholder="Confirm password">
+          <input type="password" class="form-control" id="password" placeholder="Confirm password" formControlName="confirmPassword">
         </div>
-        <button type="submit" class="ui submit fluid large primary button">Register</button>
+        <button type="submit" class="ui submit fluid large primary button" [disabled]="!form.valid">Register</button>
       </form>
       <div class="ui divider"></div>
       <p>Already a member?</p>

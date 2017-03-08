@@ -35,7 +35,11 @@ export class RegisterComponent {
   }
 
   onSubmit(credential) {
-    this.authentication.register(credential);
-    this.router.navigate(['/profile']);
+    if (credential.password == credential.confirmPassword) {
+      this.authentication.register(credential);
+      this.router.navigate(['/profile']);
+    } else {
+      this.alert.error("Password missmatch.");
+    }
   }
 }

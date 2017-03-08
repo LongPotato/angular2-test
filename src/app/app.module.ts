@@ -8,8 +8,10 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
+import { AlertComponent } from './alert/alert.component';
 
 import { AuthenticationService } from './services/authentication.service';
+import { AlertService } from './services/alert.service';
 
 import { routing } from './app.routing';
 
@@ -18,7 +20,8 @@ import { routing } from './app.routing';
     AppComponent,
     LoginComponent,
     HomeComponent,
-    RegisterComponent
+    RegisterComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +31,8 @@ import { routing } from './app.routing';
     ReactiveFormsModule
   ],
   providers: [
-    AuthenticationService
+    AuthenticationService,
+    AlertService
   ],
   bootstrap: [AppComponent]
 })

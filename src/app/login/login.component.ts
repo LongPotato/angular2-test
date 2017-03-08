@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthenticationService } from '../services/authentication.service';
+import { AlertService } from '../services/alert.service';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,9 @@ import { AuthenticationService } from '../services/authentication.service';
 export class LoginComponent {
   form;
 
-  constructor(private authentication: AuthenticationService) {}
+  constructor(
+    private alert: AlertService,
+    private authentication: AuthenticationService) {}
 
   ngOnInit() {
     let emailRegex = '^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$';
@@ -27,6 +30,10 @@ export class LoginComponent {
   }
 
   onSubmit(credential) {
-    this.authentication.login(credential);
+    if (this.authentication.login(credential) == true) {
+      console.log("Sucess!");
+    } else {
+      this.alert.error("Error: Username or password missmatch");
+    }
   }
 }

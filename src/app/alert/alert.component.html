@@ -1,0 +1,4 @@
+<div *ngIf="message"
+  [ngClass]="{ 'ui message': message, 'positive': message.type === 'success', 'negative': message.type === 'error' }">
+  <p>{{message.text}}</p>
+</div>
